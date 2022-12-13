@@ -5,10 +5,10 @@
   "version": "0.0.1",
   "publisher":"msxw",
   "keywords": ["code-snippet", "snippet", "taro-snippet", "taro-react-snippet"],
-  "homepage": "https://gitee.com/github-9819409/common-code-snippet",
+  "homepage": "https://gitee.com/github-9819409/tart-react-snippets",
   "repository": {
       "type": "git",
-      "url": "https://gitee.com/github-9819409/common-code-snippet"
+      "url": "https://gitee.com/github-9819409/tart-react-snippets.git"
   },
   "engines": {
     "vscode": "^1.74.0"
