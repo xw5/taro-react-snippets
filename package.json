@@ -1,14 +1,14 @@
 {
-  "name": "tart-react-snippets",
-  "displayName": "tart-react-snippets",
+  "name": "taro-react-snippets",
+  "displayName": "taro-react-snippets",
   "description": "taro react常用代码段",
   "version": "0.0.1",
   "publisher":"msxw",
   "keywords": ["code-snippet", "snippet", "taro-snippet", "taro-react-snippet"],
-  "homepage": "https://gitee.com/github-9819409/tart-react-snippets",
+  "homepage": "https://gitee.com/github-9819409/taro-react-snippets",
   "repository": {
       "type": "git",
-      "url": "https://gitee.com/github-9819409/tart-react-snippets.git"
+      "url": "https://gitee.com/github-9819409/taro-react-snippets.git"
   },
   "engines": {
     "vscode": "^1.74.0"
