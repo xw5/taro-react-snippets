@@ -1,0 +1,333 @@
+{
+  "taropage": {
+    "prefix": ["taropage","page"],
+    "body": [
+      "import React, { useEffect } from 'react';",
+      "import { View } from '@tarojs/components';",
+      "import {",
+      "  useReady,",
+      "  useDidShow,",
+      "  useDidHide,",
+      "  usePullDownRefresh",
+      "} from '@tarojs/taro';",
+      "",
+      "function ${1:Index} () {",
+      "  // 可以使用所有的 React Hooks",
+      "  useEffect(() => {})",
+      "",
+      "  // 对应 onReady",
+      "  useReady(() => {})",
+      "",
+      "  // 对应 onShow",
+      "  useDidShow(() => {})",
+      "",
+      "  // 对应 onHide",
+      "  useDidHide(() => {})",
+      "",
+      "  // Taro 对所有小程序页面生命周期都实现了对应的自定义 React Hooks 进行支持",
+      "  // 详情可查阅：【Hooks】",
+      "  usePullDownRefresh(() => {})",
+      "",
+      "  return (",
+      "    <View className='index' />;",
+      "  )",
+      "}",
+      "",
+      "export default ${1:Index};"
+    ],
+    "description": "taro page模板函数形式"
+  },
+
+  "taropageclass": {
+    "prefix": ["taropageclass", "pageclass"],
+    "body": [
+      "import React, { Component } from 'react'",
+      "import { View } from '@tarojs/components'",
+      "",
+      "class ${1:Index } extends Component {",
+      "  // 可以使用所有的 React 生命周期方法",
+      "  componentDidMount () {}",
+      "",
+      "  // onLoad",
+      "  onLoad () {}",
+      "",
+      "  // onReady",
+      "  onReady () {}",
+      "",
+      "  // 对应 onShow",
+      "  componentDidShow () {}",
+      "",
+      "  // 对应 onHide",
+      "  componentDidHide () {}",
+      "",
+      "  // 对应 onPullDownRefresh，除了 componentDidShow/componentDidHide 之外，",
+      "  // 所有页面生命周期函数名都与小程序相对应",
+      "  onPullDownRefresh () {}",
+      "",
+      "  render () {",
+      "    return (",
+      "      <View className='${3:page-wrap}' />",
+      "    )",
+      "  }",
+      "}",
+      "",
+      "export default ${1:Index }"
+    ],
+    "description": "taro page模板class形式"
+  },
+
+  "tarocomponent": {
+    "prefix": ["tarocomponent", "component"],
+    "body": [
+      "import React, { useEffect, useState } from 'react';",
+      "import { View } from '@tarojs/components';",
+      "import Taro from '@tarojs/taro';",
+      "",
+      "function ${1:Index} () {",
+      "  const [test, setTest] = useState('hello taro component');",
+      "",
+      "  useEffect(() => {",
+      "    Taro.showToast({",
+      "      title: '组件测试',",
+      "      icon: 'success'",
+      "    })",
+      "  })",
+      "",
+      "  return (",
+      "    <View className='${3:container}'>{test}</View>",
+      "  )",
+      "}",
+      "",
+      "export default ${1:Index}"
+    ],
+    "description": "taro component模板"
+  },
+
+  "taropageconfig": {
+    "prefix": ["taropageconfig" , "pageconfig"],
+    "body": [
+      "export default definePageConfig({",
+      "  navigationBarTitleText: '${1:页面标题}',",
+      "  navigationBarBackgroundColor: '#ffffff', // 导航栏背景颜色",
+      "  navigationBarTextStyle: 'black', // 导航栏标题颜色，仅支持 black / white",
+      "  navigationStyle: 'default', // 导航栏样式，仅支持以下值：default 默认样式；custom 自定义导航栏，只保留右上角胶囊按钮",
+      "  disableScroll: false, // 设置为 true 则页面整体不能上下滚动。只在页面配置中有效，无法在 app.json 中设置",
+      "  enablePullDownRefresh: false, // 是否开启当前页面下拉刷新",
+      "  onReachBottomDistance: 50, // 页面上拉触底事件触发时距页面底部距离，单位为 px",
+      "  disableSwipeBack: false, // 禁止页面右滑手势返回",
+      "  pageOrientation: 'portrait', // 屏幕旋转设置，支持 auto / portrait / landscape ",
+      "  // 使用第三方小程序原生组件需要配置",
+      "  usingComponents: {",
+      "",
+      "  }",
+      "})",
+      "// 配置参考文挡: https://taro-docs.jd.com/docs/page-config"
+    ],
+    "description": "taro page配置模板"
+  },
+
+  "tarousehook": {
+    "prefix": ["tarousehook", "usehook"],
+    "body": [
+      "${1|useLaunch,useRouter,useLoad,useReady,useDidShow,useDidHide,useUnload,usePullDownRefresh,useReachBottom,usePageScroll,useResize,useShareAppMessage,useTabItemTap,useShareTimeline|}(() => {",
+      "  console.log('${1}')",
+      "})"
+    ],
+    "description": "taro 特有hooks"
+  },
+
+  "taroview": {
+    "prefix": ["taroview", "view"],
+    "body": [
+      "<View ",
+      "  className='${1:example}'",
+      "  hoverClass='none'",
+      ">",
+      "  文挡：https://taro-docs.jd.com/docs/components/viewContainer/view",
+      "</View>"
+    ],
+    "description": "View组件代码段"
+  },
+
+  "tarotext": {
+    "prefix": ["tarotext", "text"],
+    "body": [
+      "<Text ",
+      "  className=\"${1:example}\"",
+      "  selectable={${2|false,true|}}",
+      "  space={${3|false,true|}}",
+      ">文挡：https://taro-docs.jd.com/docs/components/base/text</Text>"
+    ],
+    "description": "Text组件代码段"
+  },
+
+  "taroimage": {
+    "prefix": ["taroimage", "image"],
+    "body": [
+      "<Image",
+      "  className='${1:image-item}'",
+      "  src='${2:https://dummyimage.com/400x400/000000/f0f1fa?text=test}'",
+      "  mode='${3|scaleToFill,aspectFit,aspectFill,widthFix,heightFix,top,bottom,center,left,right,top left,top right,bottom left,bottom right|}'",
+      "/>",
+      "// 文挡：https://taro-docs.jd.com/docs/components/media/image"
+    ],
+    "description": "Image组件代码段"
+  },
+
+  "taroscrollview": {
+    "prefix": ["taroscrollview","scrollview"],
+    "body": [
+      "<ScrollView",
+      "  className='${1:scrollview}'",
+      "  ${2|scrollY,scrollX|}",
+      "  style={{height: '100px'}} // scrollview需要指定高度，不然不会生效",
+      ">",
+      "  <View>${3:文挡https://taro-docs.jd.com/docs/components/viewContainer/scroll-view}</View>",
+      "</ScrollView>"
+    ],
+    "description": "ScrollView组件代码段"
+  },
+
+  "taroswiper": {
+    "prefix": ["taroswiper", "swiper"],
+    "body": [
+      "<Swiper",
+      "  className='${1:swiper-wrap}'",
+      "  indicatorColor='#999' // 指示点颜色",
+      "  indicatorActiveColor='#333' // 当前选中的指示点颜色",
+      "  vertical // 滑动方向是否为纵向",
+      "  circular // 是否采用衔接滑动",
+      "  indicatorDots // 是否显示面板指示点",
+      "  autoplay  // 是否采用衔接滑动",
+      ">",
+      "  <SwiperItem>",
+      "    <View>文挡：https://taro-docs.jd.com/docs/components/viewContainer/swiper</View>",
+      "  </SwiperItem>",
+      "  <SwiperItem>",
+      "    <View>文挡：https://taro-docs.jd.com/docs/components/viewContainer/swiper-item</View>",
+      "  </SwiperItem>",
+      "</Swiper>"
+    ],
+    "description": "Swiper组件代码段"
+  },
+
+  "tarobutton": {
+    "prefix": ["tarobutton","button"],
+    "body": [
+      "<Button",
+      "  className='${1:submit-btn}'",
+      "  size='${2|default,mini|}' // default默认大小 mini小尺寸",
+      "  type='${3|primary,default,warn|}' // primary绿色 default白色 warn红色",
+      "  plain // 按钮是否镂空，背景色透明",
+      "  disabled",
+      ">文挡：https://taro-docs.jd.com/docs/components/forms/button</Button>"
+    ],
+    "description": "Button组件代码段"
+  },
+
+  "tarocheckbox": {
+    "prefix": ["tarocheckbox", "checkbox"],
+    "body": [
+      "<Checkbox ",
+      "  className='${2:checkbox-item}' ",
+      "  value='${3:test}' ",
+      "  checked={${4:isChecked}}",
+      ">文挡:https://taro-docs.jd.com/docs/components/forms/checkbox</Checkbox>"
+    ],
+    "description": "Checkbox组件代码段"
+  },
+
+  "taroradio": {
+    "prefix": ["taroradio", "radio"],
+    "body": [
+      "<Radio ",
+      "  className='${1:radio-item}' ",
+      "  value='${2:test}'",
+      "  checked={${3:isChecked}}",
+      ">文挡：https://taro-docs.jd.com/docs/components/forms/radio</Radio>"
+    ],
+    "description": "Radio组件代码段"
+  },
+
+  "taroinput": {
+    "prefix": ["taroinput", "input"],
+    "body": [
+      "<Input ",
+      "  type='${1|text,number,idcard,digit,safe-password,nickname|}'",
+      "  password={${2|false,true|}}",
+      "  placeholder='${3:请输入内容}'",
+      "  placeholderStyle={{color:'${4:#999}'}}",
+      "  focus={${5|false,true|}}",
+      "  maxlength={${6:-1}}",
+      "/>",
+      "// 文挡：https://taro-docs.jd.com/docs/components/forms/input"
+    ],
+    "description": "Input组件代码段"
+  },
+
+  "tarotextarea": {
+    "prefix": ["tarotextarea", "textarea"],
+    "body": [
+      "<Textarea ",
+      "  placeholder='${1:请输入内容}'",
+      "  placeholderStyle={{color:'${2:#999}'}}",
+      "  maxlength={${3:-1}}",
+      "  focus={${4|false,true|}}",
+      ">文挡: https://taro-docs.jd.com/docs/components/forms/textarea</Textarea>"
+    ],
+    "description": "Textarea组件代码段"
+  },
+
+  "taronavigator": {
+    "prefix": ["taronavigator", "navigator"],
+    "body": [
+      "<Navigator ",
+      "  url=\"${1:/page/index/index}\" ",
+      "  open-type=\"${2|navigate,redirect,switchTab,reLaunch,navigateBack,exit|}\"",
+      "  hover-class=\"${3:navigator-hover}\"",
+      ">文挡：https://developers.weixin.qq.com/miniprogram/dev/component/navigator.html</Navigator>"
+    ],
+    "description": "Navigator组件代码段"
+  },
+
+  "tarowebview": {
+    "prefix": ["tarowebview", "webview"],
+    "body": [
+      "<WebView src='${1:https://www.meizu.com}' />",
+      "// 文挡：https://taro-docs.jd.com/docs/components/open/web-view"
+    ],
+    "description": "Webview组件代码段"
+  },
+
+  "tarocanvas": {
+    "prefix": ["tarocanvas", "canvas"],
+    "body": [
+      "<Canvas ",
+      "  className='${1:canvas-wrap}' ",
+      "  canvasId='${2:canvasid}'",
+      "  type='${3|2d,webgl|}'",
+      "/>",
+      "// 文挡：https://taro-docs.jd.com/docs/components/canvas/"
+    ],
+    "description": "Canvas组件代码段"
+  },
+
+  "taroad": {
+    "prefix": ["taroad", "ad"],
+    "body": [
+      "<Ad",
+      "  unitId='${1:广告id}'",
+      "  adIntervals={${2:60}}",
+      "  adType='${3|banner,video,grid|}'",
+      "  onLoad={${4:() => console.log('ad onLoad')}}",
+      "  onError={${5:() => console.log('ad onError')}}",
+      "  onClose={${6:() => console.log('ad onClose')}}",
+      "/>",
+      "// 文挡：https://taro-docs.jd.com/docs/components/open/ad"
+    ],
+    "description": "Ad组件代码段"
+  },
+
+
+
+}

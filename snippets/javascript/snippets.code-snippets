@@ -1,0 +1,319 @@
+{
+  "taronavigate": {
+    "prefix": ["taronavigate", "navigate"],
+    "body": [
+      "Taro.${1|navigateTo,navigateBack,switchTab,reLaunch,redirectTo|}({",
+      "  // navigationBack不需要",
+      "  url: '${2:/pages/index/index}'",
+      "  // navigateBack特有",
+      "  delta: 1,  // 返回的页面数，如果 delta 大于现有页面数，则返回到首页。",
+      "  // navigateTo特有",
+      "  events: {",
+      "    // 为指定事件添加一个监听器，获取被打开页面传送到当前页面的数据",
+      "    acceptDataFromOpenedPage: function(data) {",
+      "      console.log(data)",
+      "    },",
+      "    someEvent: function(data) {",
+      "      console.log(data)",
+      "    }",
+      "  },",
+      "  success(res) {",
+      "    // 接口调用成功的回调函数",
+      "    // navigateTo特有，配合上面events使用",
+      "    res.eventChannel.emit('acceptDataFromOpenerPage', { data: 'test' });",
+      "  },",
+      "  fail() {",
+      "    // 接口调用失败的回调函数",
+      "  },",
+      "  complete() {",
+      "    // 接口调用结束的回调函数（调用成功、失败都会执行）",
+      "  }",
+      "})",
+      "$3"
+    ],
+    "description": "taro的路由跳转api代码段"
+  },
+
+  "tarorequest": {
+    "prefix": ["tarorequest", "request"],
+    "body": [
+      "Taro.request({",
+      "  url: '${1:apiurl}',",
+      "  method: '${2|GET,POST,PUT,DELETE,TRACE,CONNECT,OPTIONS|}',",
+      "  data: {",
+      "    ${3:test: ''}",
+      "  },",
+      "  header: {",
+      "    'content-type': '${4|application/json; charset=UTF-8,application/x-www-form-urlencoded; charset=UTF-8|}' // 默认值",
+      "  },",
+      "  success (res) {",
+      "    console.log('--request url--:success', res.data);",
+      "  },",
+      "  fail(err) {",
+      "    console.log('--request url--:err', err);",
+      "  }",
+      "})",
+      "$5"
+    ],
+    "description": "Request接口请求代码段"
+  },
+
+  "tarocliboard": {
+    "prefix": ["tarocliboard", "cliboard"],
+    "body": [
+      "Taro.${1|setClipboardData,getClipboardData|}({",
+      "  // setClipboardData特有",
+      "  data: '${2:data}',",
+      "  success(res) { ",
+      "  },",
+      "  fail(res) {",
+      "  },",
+      "  complete(res) {",
+      "  }",
+      "})",
+      "$3"
+    ],
+    "description": "剪贴板操作api"
+  },
+
+  "tarosetstorage": {
+    "prefix": ["tarosetstorage", "setstorage"],
+    "body": [
+      "Taro.setStorage({",
+      "  key:\"${1:key}\",",
+      "  data:\"${2:data}\",",
+      "  success(res) {",
+      "",
+      "  },",
+      "  fail() {",
+      "    ",
+      "  },",
+      "  complete() {",
+      "",
+      "  }",
+      "})",
+      "$3"
+    ],
+    "description": "设置key:data本地缓存"
+  },
+
+  "tarogetstorage": {
+    "prefix": ["tarogetstorage", "getstorage"],
+    "body": [
+      "Taro.getStorage({",
+      "  key:\"${1:key}\",",
+      "  success(res) {",
+      "    console.log('--getStorage ${1:key}--', res.data)",
+      "  },",
+      "  fail() {",
+      "    ",
+      "  },",
+      "  complete() {",
+      "",
+      "  }",
+      "})",
+      "$2"
+    ],
+    "description": "获取指定key的本地缓存"
+  },
+  
+  "tarosetstoragesync": {
+    "prefix": ["tarosetstoragesync", "setstoragesync"],
+    "body": [
+      "try {",
+      "  Taro.setStorageSync('${1:key}', '${2:value}')",
+      "} catch (e) { }",
+      "$3"
+    ],
+    "description": "同步方式设置key:data本地缓存"
+  },
+
+  "tarogetstoragesync": {
+    "prefix": ["tarogetstoragesync", "getstoragesync"],
+    "body": [
+      "try {",
+      "  var value = Taro.getStorageSync('${1:key}')",
+      "  if (value) {",
+      "    console.log('--getStorage ${1:key}--:ok', value)",
+      "  }",
+      "} catch (e) {",
+      "  console.log('--getStorage ${1:key}--:err', err)",
+      "}",
+      "$2"
+    ],
+    "description": "同步方式获取指定key的本地缓存"
+  },
+
+  "taroremovestoragesync": {
+    "prefix": ["taroremovestoragesync", "removestoragesync"],
+    "body": [
+      "try {",
+      "  Taro.removeStorageSync('${1:key}')",
+      "} catch (err) {",
+      "  console.log('--removeStorageSync ${1:key}--:err', err)",
+      "}",
+      "$2"
+    ],
+    "description": "同步方式删除指定key的本地缓存"
+  },
+
+  "taroremovestorage": {
+    "prefix": ["taroremovestorage", "removestorage"],
+    "body": [
+      "Taro.removeStorage({",
+      "  key:\"${1:key}\",",
+      "  success(res) {",
+      "    console.log('--removeStorage ${1:key}--', res.data)",
+      "  },",
+      "  fail() {",
+      "    ",
+      "  },",
+      "  complete() {",
+      "",
+      "  }",
+      "})",
+      "$2"
+    ],
+    "description": "异常方式删除指定key的本地缓存"
+  },
+
+  "taroshowtoast": {
+    "prefix": ["taroshowtoast", "showtoast", "tarotoast", "toast"],
+    "body": [
+      "Taro.showToast({",
+      "  title: '${1:提示的内容}',",
+      "  // - 'success': 显示成功图标，此时 title 文本最多显示 7 个汉字长度;",
+      "  // - 'error': 显示失败图标，此时 title 文本最多显示 7 个汉字长度;",
+      "  // - 'loading': 显示加载图标，此时 title 文本最多显示 7 个汉字长度;",
+      "  // - 'none': 不显示图标，此时 title 文本最多可显示两行",
+      "  icon: '${2|success,error,loading,none|}',",
+      "  // 自定义图标的本地路径，image 的优先级高于 icon",
+      "  image: '', ",
+      "  // 是否显示透明蒙层，防止触摸穿透",
+      "  mask: false,",
+      "  // 提示的延迟时间",
+      "  duration: 1500,",
+      "  success() {",
+      "    // 接口调用成功的回调函数",
+      "  },",
+      "  fail() {",
+      "    // 接口调用失败的回调函数",
+      "  },",
+      "  complete() {",
+      "    // 接口调用结束的回调函数（调用成功、失败都会执行）",
+      "  }",
+      "})",
+      "$3"
+    ],
+    "description": "taro showToast显示消息提示框"
+  },
+
+  "taroshowmodel": {
+    "prefix": ["taroshowmodel", "showmodel", "taromodel", "model"],
+    "body": [
+      "Taro.showModal({",
+      "  title: '${1:提示的标题}',",
+      "  content: '${2:提示的内容}',",
+      "  // 确定按钮",
+      "  confirmText: '确定',",
+      "  confirmColor: '#576B95',",
+      "  // 取消按钮",
+      "  showCancel: true,",
+      "  cancelText: '取消',",
+      "  cancelColor: '#000000',",
+      "  // 输入框配置，如果需要显示输入框时才需要用到",
+      "  editable: false,",
+      "  placeholderText: '',",
+      "  success (res) {",
+      "    if (res.confirm) {",
+      "      console.log('用户点击确定')",
+      "    } else if (res.cancel) {",
+      "      console.log('用户点击取消')",
+      "    }",
+      "  },",
+      "  fail() {",
+      "    // 接口调用失败的回调函数",
+      "  },",
+      "  complete() {",
+      "    // 接口调用结束的回调函数（调用成功、失败都会执行）",
+      "  }",
+      "})",
+      "$3"
+    ],
+    "description": "taro showModel显示模态对话框"
+  },
+
+  "taroshowloading": {
+    "prefix": ["taroshowloading", "showloading","taroloading", "loading"],
+    "body": [
+      "Taro.showLoading({",
+      "  title: '${1:loading提示的内容}',",
+      "  // 是否显示透明蒙层，防止触摸穿透",
+      "  mask: ${2:false},",
+      "  success() {",
+      "    ",
+      "  },",
+      "  fail() {",
+      "",
+      "  },",
+      "  complete() {",
+      "",
+      "  },",
+      "})",
+      "$3"
+    ],
+    "description": "taro showLoading显示消息提示框"
+  },
+
+  "tarohide": {
+    "prefix": ["tarohide", "hide"],
+    "body": [
+      "Taro.${1|hideToast,hideLoading|}({",
+      "  success() {",
+      "    // 接口调用成功的回调函数",
+      "  },",
+      "  fail() {",
+      "    // 接口调用失败的回调函数",
+      "  },",
+      "  complete() {",
+      "    // 接口调用结束的回调函数（调用成功、失败都会执行）",
+      "  }",
+      "})",
+      "$2"
+    ],
+    "description": "taro toaset loading隐藏"
+  },
+
+  "tarogetsysteminfo": {
+    "prefix": ["tarogetsysteminfo", "getsysteminfo"],
+    "body": [
+      "Taro.getSystemInfo({",
+      "  success (res) {",
+      "    console.log('--getSystemInfo--:success', res);",
+      "  },",
+      "  fail(err) {",
+      "    console.log('--getSystemInfo--:fail', err);",
+      "  },",
+      "  complete() {",
+      "    console.log('--getSystemInfo--:complete');",
+      "  }",
+      "})",
+      "${1:// 文挡：https://taro-docs.jd.com/docs/apis/base/system/getSystemInfo}"
+    ],
+    "description": "getSystemInfo获取系统信息代码段"
+  },
+
+  "tarogetsysteminfosync": {
+    "prefix": ["tarogetsysteminfosync", "getsysteminfosync"],
+    "body": [
+      "try {",
+      "  const res = Taro.getSystemInfoSync()",
+      "  console.log('--getSystemInfoSync--:success', res.model);",
+      "} catch (err) {",
+      "  console.log('--getSystemInfoSync--:fail', err);",
+      "}",
+      "${1:// 文挡：https://taro-docs.jd.com/docs/apis/base/system/getSystemInfoSync}"
+    ],
+    "description": "getSystemInfoSync同步获取系统信息代码段"
+  },
+}

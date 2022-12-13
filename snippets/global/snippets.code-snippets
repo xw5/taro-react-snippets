@@ -1,0 +1,17 @@
+{
+  "gbdoc": {
+    "prefix": ["gbdoc","doc"],
+    "body": [
+      "https://taro-docs.jd.com/docs/"
+    ],
+    "description": "Taro文挡地址"
+  },
+  
+  "gbapi": {
+    "prefix": ["gbapi","api"],
+    "body": [
+      "https://taro-docs.jd.com/docs/apis/about/desc"
+    ],
+    "description": "Taro Api文挡地址"
+  }
+}
